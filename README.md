@@ -1,34 +1,32 @@
 # Day 1 — Excel Crash Course
 
-**Two hours from messy rows to a working dashboard.**
+**From messy rows to a working dashboard.**
 
-You start with 1,000 rows of scruffy sales data and finish with a one-screen dashboard that filters live. Every step below is done in the room, on the same file, together.
+You start with 1,000 rows of scruffy sales data and finish with a one-screen dashboard that filters live. Work along in the file as you read — every formula here is copy-ready.
 
 | | |
 |---|---|
-| **Runtime** | 120 minutes |
 | **Level** | Beginner → confident |
-| **Format** | Follow-along, hands on keys |
 | **You need** | Excel 2021 or 365 |
 | **Working file** | `Day1_Sales_Raw.xlsx` |
-| **You leave with** | A graded dashboard |
+| **You leave with** | Your own dashboard |
 
-### Run sheet
+### What's covered
 
-| Time | Module | Topic |
-|---|---|---|
-| 0:00 – 0:20 | 1 | Data cleaning |
-| 0:20 – 0:40 | 2 | Formulas & functions |
-| 0:40 – 0:55 | 3 | XLOOKUP |
-| 0:55 – 1:15 | 4 | PivotTables |
-| 1:15 – 1:30 | 5 | Charts |
-| 1:30 – 1:40 | 6 | Slicers |
-| 1:40 – 1:50 | 7 | Conditional formatting |
-| 1:50 – 2:00 | — | Dashboard exercise |
+| Module | Topic |
+|---|---|
+| 1 | Data cleaning |
+| 2 | Formulas & functions |
+| 3 | XLOOKUP |
+| 4 | PivotTables |
+| 5 | Charts |
+| 6 | Slicers |
+| 7 | Conditional formatting |
+| — | Dashboard exercise |
 
 ---
 
-## Before we start
+## Before you start
 
 **Check your Excel version.** Type `=XLOOKUP(` into any cell. If Excel autocompletes it, you're fine. If it doesn't, you're on Excel 2019 or older and you'll use the `INDEX/MATCH` fallback given in Module 3. Excel for the web and Mac 365 both work.
 
@@ -36,7 +34,7 @@ You start with 1,000 rows of scruffy sales data and finish with a one-screen das
 
 **Turn on two things.** Formula bar and gridlines: `View` ribbon, both checkboxes. Then `File → Options → Formulas` and confirm calculation is **Automatic**. Half of all "my formula is broken" moments are this setting.
 
-**Save a checkpoint now.** Press `F12` and save as `Day1_Working.xlsx`. You'll break something in the next two hours, and reopening the raw file is much faster than undoing 40 steps.
+**Save a checkpoint now.** Press `F12` and save as `Day1_Working.xlsx`. You'll break something along the way, and reopening the raw file is much faster than undoing 40 steps.
 
 ---
 
@@ -72,14 +70,13 @@ A fictional consumer-electronics distributor: 1,000 orders across four regions f
 ---
 
 ## Module 1 — Clean the data first, always
-**0:00 – 0:20 · 20 min**
 
 Nothing downstream survives bad input. A PivotTable will happily report "North" and "north" as two separate regions and never warn you.
 
 ### Fix it in this order
 
 1. **Kill merged cells.** Select all with `Ctrl+A`, then `Home → Merge & Center` to toggle every merge off. Merged cells break sorting, filtering and PivotTables. One header row, one cell per column.
-2. **Remove duplicates.** `Data → Remove Duplicates`, tick only `Order ID`. Excel tells you how many it dropped — write that number down, you'll be asked to justify it.
+2. **Remove duplicates.** `Data → Remove Duplicates`, tick only `Order ID`. Excel tells you how many rows it dropped — note that number, it's your record of what changed.
 3. **Trim the whitespace.** Add a helper column, pull it down, then paste back as values:
 
    ```excel
@@ -101,7 +98,7 @@ Nothing downstream survives bad input. A PivotTable will happily report "North" 
    Then format the result as a date (`Ctrl+1`). A real date is a number; a text date is a wall you'll hit again in Module 4 when you try to group by month.
 
 6. **Strip the currency symbol** out of `Unit Price`: `Ctrl+H`, find `₹`, replace with nothing, `Replace All`. Format the column as Number, not Currency — you'll apply currency formatting once, at the end, on the dashboard.
-7. **Handle the blanks.** `Ctrl+G → Special → Blanks` highlights every empty cell at once. Decide as a group: delete the row, or enter `0`. Deleting silently is how you lose ₹3 lakh of revenue.
+7. **Handle the blanks.** `Ctrl+G → Special → Blanks` highlights every empty cell at once. Then decide deliberately: delete the row, or enter `0`. Deleting silently is how you lose ₹3 lakh of revenue.
 8. **Convert the range to a Table:** `Ctrl+T`. Name it `tblOrders` in `Table Design → Table Name`.
 
 > **Why the Table matters**
@@ -113,7 +110,6 @@ Nothing downstream survives bad input. A PivotTable will happily report "North" 
 ---
 
 ## Module 2 — The eight functions that cover most work
-**0:20 – 0:40 · 20 min**
 
 Not eighty. These eight, used well, handle the overwhelming majority of day-to-day business spreadsheets.
 
@@ -165,7 +161,6 @@ Formatting a cell to 0 decimals only *displays* a rounded number — the underly
 ---
 
 ## Module 3 — XLOOKUP, and why VLOOKUP retires today
-**0:40 – 0:55 · 15 min**
 
 Pull the rep's name and target from the `Reps` sheet into `Orders`, so every row can be measured against quota.
 
@@ -217,9 +212,8 @@ The second row is the dangerous one: VLOOKUP counts columns by position, so inse
 ---
 
 ## Module 4 — PivotTables: summarise 1,000 rows in four drags
-**0:55 – 1:15 · 20 min**
 
-Everything you built with SUMIFS in Module 2, rebuilt in about nine seconds — and re-sliceable without touching a formula.
+Everything you built with SUMIFS in Module 2, rebuilt in seconds — and re-sliceable without touching a formula.
 
 ### Your first pivot
 
@@ -232,7 +226,7 @@ Everything you built with SUMIFS in Module 2, rebuilt in about nine seconds — 
 > **Rows** — what you're breaking the numbers down by, going down.
 > **Columns** — the same, going across. Use sparingly; two or three values at most.
 > **Values** — the number being measured.
-> **Filters** — a whole-pivot cutter. In this workshop, slicers replace it.
+> **Filters** — a whole-pivot cutter. Here, slicers replace it.
 
 ### Five moves that make it presentable
 
@@ -257,7 +251,6 @@ Everything you built with SUMIFS in Module 2, rebuilt in about nine seconds — 
 ---
 
 ## Module 5 — Charts that answer a question
-**1:15 – 1:30 · 15 min**
 
 Pick the chart from the question you're answering, not from the ribbon gallery.
 
@@ -271,7 +264,7 @@ Pick the chart from the question you're answering, not from the ribbon gallery.
 
 Click any pivot, then `PivotTable Analyze → PivotChart` — the chart is now wired to the pivot and will react to slicers in Module 6.
 
-### Clean it up — 60 seconds per chart
+### Clean up every chart
 
 1. **Delete the gridlines.** Click one, press `Delete`. They compete with your data for attention.
 2. **Delete the legend** when there's only one series. It's telling you something you already know.
@@ -285,7 +278,6 @@ Click any pivot, then `PivotTable Analyze → PivotChart` — the chart is now w
 ---
 
 ## Module 6 — Slicers: the part that makes it interactive
-**1:30 – 1:40 · 10 min**
 
 This is the single step that turns a page of charts into a dashboard someone else can use without asking you questions.
 
@@ -294,15 +286,14 @@ This is the single step that turns a page of charts into a dashboard someone els
 3. **Wire each slicer to every pivot.** Right-click the slicer → `Report Connections` → tick all three pivots. Repeat for the second slicer and the timeline.
 4. Style it: `Slicer → Columns: 2` so it sits in a tidy block, and drop the height to match your KPI row.
 
-> **This is the step people skip**
-> Without **Report Connections**, each slicer controls only the pivot it was created from. Your reviewer clicks "South", one chart changes, the other two don't, and the whole dashboard looks broken. Check all three boxes, on every slicer.
+> **Don't skip step 3**
+> Without **Report Connections**, each slicer controls only the pivot it was created from. Someone clicks "South", one chart changes, the other two don't, and the whole dashboard looks broken. Check all three boxes, on every slicer.
 
-Test it now: click **South** and confirm all three charts move together. Then `Clear Filter` (the funnel icon, top-right of the slicer) to reset.
+Test it: click **South** and confirm all three charts move together. Then `Clear Filter` (the funnel icon, top-right of the slicer) to reset.
 
 ---
 
 ## Module 7 — Conditional formatting, used with restraint
-**1:40 – 1:50 · 10 min**
 
 Colour should point at the exceptions. If everything is coloured, nothing is.
 
@@ -328,9 +319,8 @@ Write the formula **for the top-left cell of your selection only**; Excel applie
 ---
 
 ## Exercise — Build the Day 1 dashboard
-**1:50 – 2:00 · 10 min**
 
-Ten minutes, on the `Dashboard` sheet, using only what you built in the last two hours. Everything you need already exists on the `Pivots` sheet — this is assembly, not invention.
+On the `Dashboard` sheet, using only what you built in the modules above. Everything you need already exists on the `Pivots` sheet — this is assembly, not invention.
 
 ### Required layout
 
@@ -350,7 +340,7 @@ Ten minutes, on the `Dashboard` sheet, using only what you built in the last two
 └─────────────────────────────────────────────────────────────┘
 ```
 
-Everything on one screen. If a reviewer has to scroll, it isn't a dashboard yet.
+Everything on one screen. If a reader has to scroll, it isn't a dashboard yet.
 
 ### The four KPI formulas
 
@@ -374,9 +364,11 @@ The fourth reads as **"9 of 24"**, where `Achieved` is revenue ÷ target. Note t
 - [ ] Sheets renamed, tab colours set, cursor parked on `A1` before the final save.
 - [ ] Click a slicer, confirm all three charts move, then clear the filter.
 
-### How it's marked
+### What a finished dashboard has
 
-| Criterion | Points |
+Use this to check your own work before you submit.
+
+| | Weight |
 |---|---|
 | **Data is genuinely clean** — no duplicate order IDs, one spelling per region, dates are real dates, no text in numeric columns | 20 |
 | **Four KPIs, correct and formatted** — right values, currency formatting, labelled so a stranger knows what they're looking at | 15 |
@@ -388,7 +380,7 @@ The fourth reads as **"9 of 24"**, where `Achieved` is revenue ÷ target. Note t
 | **Total** | **100** |
 
 > **Submitting**
-> Save as `Day1_Dashboard_FirstnameLastname.xlsx` and upload before you leave the room. Unfinished is fine and expected — submit what you have. Day 2 starts by opening three of these on the projector and rebuilding the parts that didn't land.
+> Save as `Day1_Dashboard_FirstnameLastname.xlsx` and upload it. Unfinished is fine and expected — submit what you have.
 
 ---
 
@@ -415,4 +407,4 @@ The fourth reads as **"9 of 24"**, where `Achieved` is revenue ÷ target. Note t
 
 ---
 
-**Day 2 picks up where this stops:** Power Query for repeatable cleaning, the data model and relationships, and slicer-aware KPIs. Bring your submitted file.
+**Day 2 picks up where this stops:** Power Query for repeatable cleaning, the data model and relationships, and slicer-aware KPIs. Bring your saved file.
