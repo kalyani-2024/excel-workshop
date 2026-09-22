@@ -351,7 +351,7 @@ Everything on one screen. If a reader has to scroll, it isn't a dashboard yet.
 =COUNTIFS(tblReps[Achieved],">=1")&" of "&COUNTA(tblReps[Rep ID])
 ```
 
-The fourth reads as **"9 of 24"**, where `Achieved` is revenue ÷ target. Note that these four are static totals — they won't respond to slicers, which is fine for a headline. Making KPIs follow the slicer needs a pivot or a CUBE function, and that's Day 2.
+The fourth reads as **"9 of 24"**, where `Achieved` is revenue ÷ target. Note that these four are static totals — they won't respond to slicers, which is fine for a headline. Making KPIs follow the slicer needs a pivot or a CUBE function, which is beyond what this session covers.
 
 ### Finishing checklist
 
@@ -366,7 +366,7 @@ The fourth reads as **"9 of 24"**, where `Achieved` is revenue ÷ target. Note t
 
 ### What a finished dashboard has
 
-Use this to check your own work before you submit.
+Use this to check your own work.
 
 | | Weight |
 |---|---|
@@ -379,8 +379,7 @@ Use this to check your own work before you submit.
 | **It fits on one screen** — no scrolling, no gridlines, nothing overlapping, supporting sheets hidden | 5 |
 | **Total** | **100** |
 
-> **Submitting**
-> Save as `Day1_Dashboard_FirstnameLastname.xlsx` and upload it. Unfinished is fine and expected — submit what you have.
+Unfinished is fine and expected — you've had two hours. Save the file and keep it; it's a working template you can point at your own data by swapping what's in the `Orders` sheet and refreshing.
 
 ---
 
@@ -407,4 +406,4 @@ Use this to check your own work before you submit.
 
 ---
 
-**Day 2 picks up where this stops:** Power Query for repeatable cleaning, the data model and relationships, and slicer-aware KPIs. Bring your saved file.
+**If you want to go further on your own:** Power Query handles repeatable cleaning — everything in Module 1, recorded once and replayed on next month's file with one click. From there, the data model and relationships let you combine tables without a single XLOOKUP.
