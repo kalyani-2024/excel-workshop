@@ -4,12 +4,6 @@
 
 You start with 1,000 rows of raw test results and finish with a one-screen dashboard that filters live and states what the data actually shows. Work along in the file as you read — every formula here is copy-ready.
 
-| | |
-|---|---|
-| **Level** | Beginner → confident |
-| **You need** | Excel 2021 or 365 |
-| **Working file** | `Day1_BatteryTest_Raw.xlsx` |
-| **You leave with** | Your own dashboard |
 
 ### How to use this handbook
 
@@ -632,39 +626,6 @@ Everything on one screen. If a reader has to scroll, it isn't a dashboard yet.
 
 Note the first KPI is the count of *readings*, not rows — it tells you immediately if blanks are eating your data. These four are static totals and won't respond to slicers, which is fine for a headline; making KPIs follow the slicer needs a pivot or a CUBE function, beyond what this session covers.
 
-### Finishing checklist
-
-- [ ] **Every pivot value set to Average, not Sum.** Check each header reads "Average of", not "Sum of".
-- [ ] Every mean has its **n** shown somewhere near it.
-- [ ] Gridlines off — `View → uncheck Gridlines`. The single biggest visual upgrade available.
-- [ ] All charts are PivotCharts (except the scatter), connected to all slicers via Report Connections.
-- [ ] Axes labelled with units; no truncated axis on a bar chart.
-- [ ] No raw data on the dashboard sheet. Right-click the `Pivots` tab → Hide.
-- [ ] Charts aligned to each other — select two, then `Shape Format → Align → Align Top`.
-- [ ] One conditional formatting rule visible, pointing at the exceptions.
-- [ ] A findings text box with at least three bullets, each containing a number.
-- [ ] Click a slicer, confirm everything moves, then clear the filter.
-- [ ] Sheets renamed, tab colours set, cursor parked on `A1` before the final save.
-
-### What a finished dashboard has
-
-Use this to check your own work.
-
-| | Weight |
-|---|---|
-| **Data is genuinely clean** — no duplicates, one spelling per group, real dates, no text or units in numeric columns, impossible values dealt with | 15 |
-| **Correct aggregation** — measures averaged not summed, n and spread reported beside every mean | 15 |
-| **Anomalies found and handled** — outliers flagged, systematic offsets identified, decisions stated rather than silent | 15 |
-| **Four KPIs, correct and formatted** — right values, sensible precision, labelled so a stranger knows what they're looking at | 10 |
-| **At least one XLOOKUP in use** — a per-group threshold or attribute joined in, with an `if_not_found` value set | 10 |
-| **Charts that answer the question** — scatter with trendline for the relationship, sorted bars for comparison, axes labelled, titles that state a finding | 15 |
-| **Slicers connected to every pivot** — the interactivity test: one click moves the whole dashboard | 10 |
-| **A findings summary** — three to five bullets with numbers, including at least one caveat or limitation | 10 |
-| **Total** | **100** |
-
-Unfinished is fine and expected — you've had two hours. Save the file and keep it; it's a working template you can point at any dataset with the same four column roles, by swapping what's in the `Runs` sheet and refreshing.
-
----
 
 ## Shortcuts
 
@@ -694,4 +655,4 @@ Unfinished is fine and expected — you've had two hours. Save the file and keep
 
 ---
 
-**If you want to go further on your own:** Power Query handles repeatable cleaning — everything in Module 1, recorded once and replayed on next month's file with one click, including reshaping wide data to long. From there, the data model and relationships let you combine tables without a single XLOOKUP.
+
